@@ -46,18 +46,25 @@ fn main()
  */
 
 // Program 3:  Program to find the surface area of the cylinder
-
+//Surface Area of Cylinder = 2 Π (r + h)
 use std::io;
+
 
 fn main(){
 
     let mut r=String::new();
     let mut h=String::new();
-    let mut pie=3.14;
+    let  pie=3.14;
 
-    println!("")
+    println!("Enter the radius and height");
     io::stdin().read_line(&mut r).expect("failed to read line");
     io::stdin().read_line(&mut h).expect("failed to read line");
 
+    let radius:f32=r.trim().parse().expect("Enter wrong number");
+    let height:f32=h.trim().parse().expect("Enter wrong number");
+
+    let area= 2.0 * pie * (radius+height);
+
+    println!("surface_area_of_cylinder;{}",area);
 
 }
