@@ -153,7 +153,7 @@ fn calculate_length(mut number:i32) -> i32 {
 
  */
 */
-//program to Check Happy number
+//program to Check Happy number.
 
 
 use std::io;
