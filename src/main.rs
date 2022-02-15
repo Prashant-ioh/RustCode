@@ -115,6 +115,8 @@ fn calculate_length(mut n:i32)->i32{
 }
 
 /*
+//. Program to check Disarium Number = 1^1 + 7^2 + 5^3 = 1 + 49 + 125 = 175
+ */
 use std::io;
 fn main(){
     println!("Enter the number");
@@ -152,7 +154,9 @@ fn calculate_length(mut number:i32) -> i32 {
 }
 
  */
-*/
+
+
+/*
 //program to Check Happy number.
 
 
@@ -191,6 +195,50 @@ fn main()
     else {
         print!("Entered number is not happy number");
     }
+}
+ */
+
+//Program to print all Pronic numbers between 1 to 100 using loop
+
+//use std::io;
+fn main()
+{
+    let mut result;
+
+    for i in  0..=100{
+        result=sumofdigit(i);
+        if result==i{
+            println!("disarium number is:{}",i);
+        }
+}
+
+}
+    fn calculatelength(mut n:i32) -> i32 {
+
+    let mut length =0;
+    while  n != 0 {
+        length = length + 1;
+        n = n /10;
+
+    }
+    return length;
+}
+
+fn sumofdigit(mut num:i32) -> i32
+{
+    let mut sum=0;
+
+
+    let mut len = calculatelength(num);
+    let mut rem;
+    while num>0 {
+        rem =  num %10;
+        sum  =  sum + rem.pow(len as u32);
+        num = num/10;
+        len = len-1;
+
+    }
+return sum;
 }
 
 
