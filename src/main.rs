@@ -196,7 +196,7 @@ fn main()
         print!("Entered number is not happy number");
     }
 }
- */
+
 
 //Program to print all Pronic numbers between 1 to 100 using loop
 
@@ -240,6 +240,166 @@ fn sumofdigit(mut num:i32) -> i32
     }
 return sum;
 }
+
+
+// Enum in rust
+
+#[allow(dead_code)]
+enum Color {
+    // These 3 are specified solely by their name.
+    Red,
+    Blue,
+    Green,
+    // These likewise tie `u32` tuples to different names: color models.
+    RGB(u32, u32, u32),
+    HSV(u32, u32, u32),
+    HSL(u32, u32, u32),
+    CMY(u32, u32, u32),
+    CMYK(u32, u32, u32, u32),
+}
+
+fn main()
+{
+   let color = Color::RGB(122, 17, 40);
+
+    println!("What color is ?");
+
+    match  color {
+        Color::Red => println!("The color is Red!"),
+        Color::Blue => println!("The color is blue!"),
+        Color::Green =>println!("The color is green!"),
+        Color::RGB(r, g, b) =>
+            println!("Red: {}, green: {}, and blue: {}!", r, g, b),
+        Color::HSV(h, s, v) =>
+            println!("Hue: {}, saturation: {}, value: {}!", h, s, v),
+        Color::HSL(h, s, l) =>
+            println!("Hue: {}, saturation: {}, lightness: {}!", h, s, l),
+        Color::CMY(c, m, y) =>
+            println!("Cyan: {}, magenta: {}, yellow: {}!", c, m, y),
+        Color::CMYK(c, m, y, k) =>
+            println!("Cyan: {}, magenta: {}, yellow: {}, key (black): {}!",
+                     c, m, y, k),
+    }
+}
+
+
+
+#[allow(dead_code)]
+enum Direction{
+    Up,
+    Down,
+    Left,
+    Right
+}
+
+fn main() {
+    let player_direction: Direction = Direction::Up;
+    match player_direction
+    {
+        Direction::Up => println!("We are all heading up"),
+        Direction::Down => println!("We are all going down"),
+        Direction::Left =>println!("We are all going left"),
+        Direction::Right =>println!("We are all going right"),
+    }
+
+    let player_direction: Direction = Direction::Down;
+    match player_direction
+    {
+        Direction::Up => println!("We are all heading up"),
+        Direction::Down => println!("We are all going down"),
+        Direction::Left =>println!("We are all going left"),
+        Direction::Right =>println!("We are all going right"),
+    }
+
+    let player_direction:Direction= Direction::Left;
+    match player_direction
+    {
+        Direction::Up=>println!("We are all heading up"),
+        Direction::Down => println!("We are all going down"),
+        Direction::Left =>println!("We are all going left"),
+        Direction::Right =>println!("We are all going right"),
+
+    }
+
+    let player_direction:Direction= Direction::Right;
+    match  player_direction
+    {
+        Direction::Up=>println!("We are all heading up"),
+        Direction::Down => println!("We are all going down"),
+        Direction::Left =>println!("We are all going left"),
+        Direction::Right =>println!("We are all going right"),
+    }
+
+}
+
+
+
+// Structure in rust
+
+struct Color{
+    red : i32,
+    green : u8,
+    blue : u8
+
+}
+
+fn main()
+{
+    let mut bg = Color{red:23, green:67, blue:86};
+
+    bg.green = 65;
+    bg.red = 554;
+    bg.blue = 43;
+    println!("{},{},{}", bg.red, bg.green, bg.blue);
+
+}
+
+
+
+ */
+
+//mod Program;
+//  Struct program 2:
+
+// `i32`. The reference to `i32` must outlive `Borrowed`.
+#[derive(Debug)]
+struct Borrowed<'a >(&'a i32);
+
+// Similarly, both references here must outlive this structure.
+#[derive(Debug)]
+struct NamedBorrowed<'a> {
+    x: &'a i32,
+    y: &'a i32,
+}
+
+// An enum which is either an `i32` or a reference to one.
+#[derive(Debug)]
+enum Either<'a> {
+    Num(i32),
+    Ref(&'a i32),
+}
+
+fn main() {
+    let x = 18;
+    let y = 15;
+
+    let single = Borrowed(&x);
+    let double = NamedBorrowed { x: &x, y: &y };
+    let reference = Either::Ref(&x);
+    let number    = Either::Num(y);
+
+    println!("x is borrowed in {:?}", single);
+    println!("x and y are borrowed in {:?}", double);
+    println!("x is borrowed in {:?}", reference);
+    println!("y is *not* borrowed in {:?}", number);
+
+}
+
+
+
+
+
+
 
 
 
